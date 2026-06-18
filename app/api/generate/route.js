@@ -1,7 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-6';
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
 
 const SYSTEM_PROMPT = `You are a senior social media strategist at Boko Digital, a global digital agency.
@@ -91,7 +91,7 @@ export async function POST(req) {
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 8000,
+        max_tokens: 7000,
         system: SYSTEM_PROMPT,
         messages: [
           { role: 'user', content: buildUserPrompt({ business, industry, description, igPages }) },
